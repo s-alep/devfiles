@@ -164,7 +164,7 @@ return {
         request = 'launch',
         module = 'flask',
         env = {
-          FLASK_APP = os.get_env('FLASK_APP')
+          FLASK_APP = os.get_env('FLASK_APP'),
           FLASK_ENV = 'development',
           FLASK_RUN_HOST ='0.0.0.0',
           FLASK_DEBUG = '1',
