@@ -20,7 +20,7 @@ make CMAKE_BUILD_TYPE=RelWithDebInfo
 
 make install
 
-curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 apt install -y nodejs
 
 pip install debugpy
