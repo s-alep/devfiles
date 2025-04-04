@@ -33,6 +33,13 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
+      '<leader>dt',
+      function()
+        require('dap').terminate()
+      end,
+      desc = 'Debug: Terminate',
+    },
+    {
       '<leader>di',
       function()
         require('dap').step_into()
@@ -92,8 +99,7 @@ return {
       -- You'll need to check that you have the required things installed
       -- online, please don't ask me how to install them :)
       ensure_installed = {
-        -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        'debugpy',
       },
     }
 
@@ -163,12 +169,6 @@ return {
         type = 'python',
         request = 'launch',
         module = 'flask',
-        env = {
-          FLASK_APP = os.get_env('FLASK_APP'),
-          FLASK_ENV = 'development',
-          FLASK_RUN_HOST ='0.0.0.0',
-          FLASK_DEBUG = '1',
-        },
         args = {
           'run',
         },

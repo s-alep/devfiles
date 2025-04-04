@@ -149,6 +149,22 @@ require('lazy').setup({
   },
 })
 
-vim.cmd.colorscheme 'gruvbox'
+local function toggle_transparent()
+  local tokyonight = require 'tokyonight'
+  local is_transparent = vim.g.tokyonight_transparent or false
+
+  -- Toggle transparency
+  vim.g.tokyonight_transparent = not is_transparent
+
+  -- Apply the updated config
+  tokyonight.setup {
+    transparent = vim.g.tokyonight_transparent,
+  }
+
+  -- Reload the colorscheme
+  vim.cmd 'colorscheme tokyonight'
+end
+
+vim.keymap.set('n', '<leader>tw', toggle_transparent, { desc = 'Toggle Transparent Mode' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

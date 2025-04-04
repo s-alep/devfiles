@@ -29,6 +29,8 @@ mkdir -p ~/.config
 
 mv ~/devfiles/nvim ~/.config/
 mv ~/devfiles/.tmux.conf ~
+mv ~/devfiles/.bashrc ~
+source ~/.bashrc
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
  
 nvim --version
