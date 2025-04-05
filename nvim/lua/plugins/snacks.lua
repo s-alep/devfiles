@@ -21,10 +21,17 @@ return {
       },
     },
     zen = { enabled = true },
+    terminal ={},
     toggle = { enabled = true },
     dim = { enabled = true },
   },
   keys = {
+      '<leader>tt',
+      function()
+        Snacks.terminal.open()
+      end,
+      desc = '[T]oggle [T]erminal',
+    },
     {
       '<leader>ts',
       function()
