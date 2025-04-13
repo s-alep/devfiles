@@ -136,21 +136,22 @@ require('lazy').setup({
 })
 
 local function toggle_transparent()
-  local tokyonight = require 'tokyonight'
-  local is_transparent = vim.g.tokyonight_transparent or false
+  local monet = require 'monet'
+  local is_transparent = vim.g.monet_transparent_background or false
 
   -- Toggle transparency
-  vim.g.tokyonight_transparent = not is_transparent
+  vim.g.monet_transparent_background = not is_transparent
 
   -- Apply the updated config
-  tokyonight.setup {
-    transparent = vim.g.tokyonight_transparent,
+  monet.setup {
+    transparent = vim.g.monet_transparent_background,
   }
 
   -- Reload the colorscheme
-  vim.cmd 'colorscheme tokyonight'
+  vim.cmd 'colorscheme monet'
 end
 
+vim.cmd 'colorscheme monet'
 vim.keymap.set('n', '<leader>tw', toggle_transparent, { desc = 'Toggle Transparent Mode' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
