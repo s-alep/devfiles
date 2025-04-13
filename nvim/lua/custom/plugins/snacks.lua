@@ -2,6 +2,7 @@ return {
   'folke/snacks.nvim',
   opts = {
     scratch = { enabled = true },
+    terminal = {},
     styles = {
       zen = {
         enter = true,
@@ -26,12 +27,18 @@ return {
   },
   keys = {
     {
-      '<leader>ts',
+      '<leader>tt',
       function()
-        Snacks.scratch()
+        Snacks.terminal()
       end,
       desc = '[T]oggle [S]cratch Buffer',
-    },
+    }, {
+    '<leader>ts',
+    function()
+      Snacks.scratch()
+    end,
+    desc = '[T]oggle [S]cratch Buffer',
+  },
     {
       '<leader>ss',
       function()

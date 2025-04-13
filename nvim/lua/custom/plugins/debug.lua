@@ -11,20 +11,13 @@ return {
   'mfussenegger/nvim-dap',
   -- NOTE: And you can specify dependencies as well
   dependencies = {
-    -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
-
-    -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
-
-    -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
     'mfussenegger/nvim-dap-python',
-    -- Add your own debuggers here
   },
   keys = {
-    -- Basic debugging keymaps, feel free to change to your liking!
     {
       '<leader>dd',
       function()
@@ -74,7 +67,6 @@ return {
       end,
       desc = 'Debug: Set Breakpoint',
     },
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<leader>du',
       function()
@@ -88,18 +80,11 @@ return {
     local dapui = require 'dapui'
 
     require('mason-nvim-dap').setup {
-      -- Makes a best effort to setup the various debuggers with
-      -- reasonable debug configurations
       automatic_installation = true,
-
-      -- You can provide additional configuration to the handlers,
-      -- see mason-nvim-dap README for more information
       handlers = {},
-
-      -- You'll need to check that you have the required things installed
-      -- online, please don't ask me how to install them :)
       ensure_installed = {
         'debugpy',
+        'php-debug-adapter',
       },
     }
 
@@ -130,7 +115,7 @@ return {
     vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
     local breakpoint_icons = vim.g.have_nerd_font
         and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-      or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+        or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
     for type, icon in pairs(breakpoint_icons) do
       local tp = 'Dap' .. type
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
@@ -141,28 +126,23 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
     require('dap-python').setup 'python3'
-    local project_dap_config = vim.fn.getcwd() .. '/.nvim/dap.lua'
-    if vim.fn.filereadable(project_dap_config) == 1 then
-      local project_dap = dofile(project_dap_config)
+    dap.adapters.php = {
+      type = 'executable',
+      command = 'php-debug-adapter', -- or full path to it
+      args = {}
+    }
 
-      -- Ensure Python DAP configurations exist
-      if project_dap and project_dap.configurations and project_dap.configurations.python then
-        vim.list_extend(dap.configurations.python, project_dap.configurations.python)
-      end
-    end
-    vim.keymap.set('n', '<Leader>dr', function()
-      -- Reload default DAP settings
-      package.loaded['dap-config'] = nil
-      require 'dap-config'
-
-      -- Reload project-specific config if it exists
-      local project_dap_config = vim.fn.getcwd() .. '/.nvim/dap.lua'
-      if vim.fn.filereadable(project_dap_config) == 1 then
-        dofile(project_dap_config)
-      end
-
-      print 'DAP configuration reloaded!'
-    end, { desc = 'Reload DAP Configuration' })
+    dap.configurations.php = {
+      {
+        type = 'php',
+        request = 'launch',
+        name = 'Listen for Xdebug',
+        port = 9003,
+        pathMappings = {
+          ["/var/www/html"] = "${workspaceFolder}", -- DDEV web root
+        },
+      }
+    }
     dap.configurations.python = {
       {
         name = 'Python Flask',
