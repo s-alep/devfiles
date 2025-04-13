@@ -2,7 +2,7 @@
 
 set -e  # Exit on error
 
-sudo apt update && apt install -y ripgrep tmux
+sudo apt update && apt install -y ripgrep tmux gcc
 
 # Install nvim
 cd ~
@@ -12,7 +12,7 @@ rm -rf  nvim-linux-x86_64.tar.gz
 sudo mv nvim-linux-x86_64 nvim
 sudo mv nvim /opt/
 sudo ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim
-nvim -v 
+nvim -v
 
 cd ~/devfiles
 mv nvim .config

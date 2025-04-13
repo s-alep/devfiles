@@ -140,6 +140,7 @@ return {
         port = 9003,
         pathMappings = {
           ["/var/www/html"] = "${workspaceFolder}", -- DDEV web root
+          ["/var/www/html/web"] = "${workspaceFolder}/web", -- DDEV web root
         },
       }
     }
