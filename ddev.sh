@@ -15,7 +15,7 @@ sudo ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim
 nvim -v
 
 cd ~/devfiles
-mv nvim .config
+mv nvim ~/.config
 mv .tmux.conf ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

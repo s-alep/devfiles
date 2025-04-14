@@ -1,3 +1,3 @@
 return {
-  'fynnfluegge/monet.nvim',
+  'folke/tokyonight.nvim',
 }
