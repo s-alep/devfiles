@@ -16,4 +16,3 @@ nvim -v
 mv devfiles/nvim ~/.config
 mv devfiles/.tmux.conf ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-export 
