@@ -5,7 +5,6 @@ set -e  # Exit on error
 sudo apt update && sudo apt install -y ripgrep tmux gcc
 
 # Install nvim
-cd ~
 curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
 tar -xzf nvim-linux-x86_64.tar.gz
 rm -rf  nvim-linux-x86_64.tar.gz
@@ -14,8 +13,7 @@ sudo mv nvim /opt/
 sudo ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim
 nvim -v
 
-cd ~/devfiles
-mv nvim ~/.config
-mv .tmux.conf ~
+mv devfiles/nvim ~/.config
+mv devfiles/.tmux.conf ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-export TERM=xterm-256color
+export 
