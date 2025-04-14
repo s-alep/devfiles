@@ -2,7 +2,7 @@
 
 set -e  # Exit on error
 
-sudo apt update && apt install -y ripgrep tmux gcc
+sudo apt update && sudo apt install -y ripgrep tmux gcc
 
 # Install nvim
 cd ~
