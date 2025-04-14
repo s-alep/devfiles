@@ -22,11 +22,12 @@ return {
       },
     },
     zen = { enabled = true },
-    terminal ={},
+    terminal = {},
     toggle = { enabled = true },
     dim = { enabled = true },
   },
   keys = {
+    {
       '<leader>tt',
       function()
         Snacks.terminal.open()
@@ -39,13 +40,14 @@ return {
         Snacks.terminal()
       end,
       desc = '[T]oggle [S]cratch Buffer',
-    }, {
-    '<leader>ts',
-    function()
-      Snacks.scratch()
-    end,
-    desc = '[T]oggle [S]cratch Buffer',
-  },
+    },
+    {
+      '<leader>ts',
+      function()
+        Snacks.scratch()
+      end,
+      desc = '[T]oggle [S]cratch Buffer',
+    },
     {
       '<leader>ss',
       function()
