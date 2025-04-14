@@ -18,7 +18,4 @@ cd ~/devfiles
 mv nvim ~/.config
 mv .tmux.conf ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-
-
-
+export TERM=xterm-256color
