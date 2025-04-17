@@ -37,7 +37,7 @@ tmux-256color|tmux with 256 colors,
 EOF
 
 tic ~/.terminfo/t/tmux-256color.terminfo
-
+cd /root
 sed -i 's/\r$//' devfiles/.tmux.conf
 sed -i 's/\r$//' devfiles/.bashrc
 
