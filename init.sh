@@ -26,26 +26,37 @@ apt install -y nodejs
 pip install debugpy
 
 mkdir -p ~/.config
-
+echo '1'
 export TERM=xterm-256color
 
+echo '2'
 mkdir -p ~/.terminfo/t
 
+echo '3'
 cat << 'EOF' > ~/.terminfo/t/tmux-256color.terminfo
 tmux-256color|tmux with 256 colors,
   use=xterm-256color,
 EOF
 
+echo '4'
 tic ~/.terminfo/t/tmux-256color.terminfo
+
+echo '5'
 cd /root
 sed -i 's/\r$//' devfiles/.tmux.conf
 sed -i 's/\r$//' devfiles/.bashrc
 
+echo '6'
 mv devfiles/nvim ~/.config/
+echo '7'
 mv devfiles/.tmux.conf ~
+echo '8'
 rm /root/.bashrc
+echo '8'
 mv devfiles/.bashrc ~
+echo '9'
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo '10'
 
 nvim --version
 node -v
