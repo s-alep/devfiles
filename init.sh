@@ -27,10 +27,21 @@ pip install debugpy
 
 mkdir -p ~/.config
 
+export TERM=xterm-256color
+
+mkdir -p ~/.terminfo/t
+
+cat << 'EOF' > ~/.terminfo/t/tmux-256color.terminfo
+tmux-256color|tmux with 256 colors,
+  use=xterm-256color,
+EOF
+
+tic ~/.terminfo/t/tmux-256color.terminfo
+
 mv devfiles/nvim ~/.config/
 mv devfiles/.tmux.conf ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
- 
+
 nvim --version
 node -v
 npm -v
