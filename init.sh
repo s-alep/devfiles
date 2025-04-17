@@ -43,7 +43,6 @@ sed -i 's/\r$//' devfiles/.bashrc
 
 mv devfiles/nvim ~/.config/
 mv devfiles/.tmux.conf ~
-mv devfiles/.bashrc ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 nvim --version
