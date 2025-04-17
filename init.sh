@@ -38,6 +38,9 @@ EOF
 
 tic ~/.terminfo/t/tmux-256color.terminfo
 
+sed -i 's/\r$//' devfiles/.tmux.conf
+sed -i 's/\r$//' devfiles/.bashrc
+
 mv devfiles/nvim ~/.config/
 mv devfiles/.tmux.conf ~
 rm ~/.bashrc
