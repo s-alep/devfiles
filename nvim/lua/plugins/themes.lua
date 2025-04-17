@@ -1,14 +1,8 @@
 return {
-  'olivercederborg/poimandres.nvim',
+  'folke/tokyonight.nvim',
   lazy = false,
   priority = 1000,
-  config = function()
-    require('poimandres').setup {
-      disable_background = true,
-    }
-  end,
- n
   init = function()
-    vim.cmd 'colorscheme poimandres'
+    vim.cmd 'colorscheme tokyonight-storm'
   end,
 }
