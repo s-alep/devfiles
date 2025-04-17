@@ -40,6 +40,8 @@ tic ~/.terminfo/t/tmux-256color.terminfo
 
 mv devfiles/nvim ~/.config/
 mv devfiles/.tmux.conf ~
+rm ~/.bashrc
+mv .bashrc ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 nvim --version
