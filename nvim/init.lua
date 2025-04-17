@@ -140,5 +140,7 @@ require('lazy').setup({
 })
 
 vim.cmd 'colorscheme tokyonight-storm'
+vim.cmd 'MasonInstall php-debug-adapter'
+vim.cmd 'MasonInstall phpcbf'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
