@@ -5,6 +5,7 @@ esac
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
+123
 HISTFILESIZE=2000
 
 shopt -s histappend

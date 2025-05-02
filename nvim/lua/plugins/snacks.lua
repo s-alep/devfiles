@@ -2,6 +2,14 @@ return {
   'folke/snacks.nvim',
   opts = {
     scratch = { enabled = true },
+    indent = {
+      priority = 1,
+      enabled = true,
+      char = '│',
+      only_scope = false,
+      only_current = false,
+      hl = 'SnacksIndent',
+    },
   },
   keys = {
     {
