@@ -76,7 +76,6 @@ require('lazy').setup({
   },
 })
 
-vim.cmd 'colorscheme everforest'
 vim.cmd 'MasonInstall php-debug-adapter'
 vim.cmd 'MasonInstall phpcbf'
 -- The line beneath this is called `modeline`. See `:help modeline`
