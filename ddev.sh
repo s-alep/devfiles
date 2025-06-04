@@ -2,7 +2,7 @@
 
 set -e  # Exit on error
 
-sudo apt update && sudo apt install -y ripgrep tmux gcc
+sudo apt update && sudo apt install -y ripgrep tmux gcc 
 
 # Install nvim
 curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
