@@ -5,7 +5,7 @@ return {
     { 'williamboman/mason.nvim', opts = {} },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'j-hui/fidget.nvim',       opts = {} },
+    { 'j-hui/fidget.nvim', opts = {} },
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
@@ -126,8 +126,9 @@ return {
     local servers = {
       -- pyright = {},
       -- jinja_lsp = {},
-      intelephense = {},
+      phpactor = {},
       jsonls = {},
+      typescript_language_server = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
       lua_ls = {

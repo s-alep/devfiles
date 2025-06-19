@@ -34,7 +34,8 @@ return { -- Autoformat
       lua = { 'stylua' },
       -- python = { 'black' },
       xml = { 'xmlformatter' },
-      php = { 'phpcbf' }
+      php = { 'phpcbf' },
+      javascript = { 'prettier' },
     },
   },
 }
