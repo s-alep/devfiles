@@ -78,5 +78,7 @@ require('lazy').setup({
 
 vim.cmd 'MasonInstall php-debug-adapter'
 vim.cmd 'MasonInstall phpcbf'
+vim.cmd 'MasonInstall typescirpt-language-server'
+vim.cmd 'MasonInstall prettier'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
