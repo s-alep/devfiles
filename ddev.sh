@@ -1,17 +1,17 @@
 #!/bin/bash
 
-set -e  # Exit on error
+rm -rf ~/.tmux
+rm -rf devfiles
+rm -rf ~/.tmux.conf
+rm -rf ~/.config/nvim
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/s-alep/devfiles.git
+sed -i 's/\r$//' devfiles/.tmux.conf
+cp devfiles/.tmux.conf ~
+cp -r devfiles/nvim ~/.config
 
-sudo apt update && sudo apt install -y ripgrep tmux gcc 
+mkdir ~/.local/scripts
+cp devfiles/module-sessionizer ~/.local/scripts
 
-# Install nvim
-curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
-tar -xzf nvim-linux-x86_64.tar.gz
-rm -rf  nvim-linux-x86_64.tar.gz
-sudo mv nvim-linux-x86_64 nvim
-sudo mv nvim /opt/
-sudo ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim
-nvim -v
-
-mv devfiles/nvim ~/.config
-mv devfiles/.tmux.conf ~
+echo 'PATH="$PATH":"$HOME/.local/scripts/"' >> ~/.bashrc
+echo 'bind '"'"'\C-f':'module-sessionizer\n'"'"'' >> ~/.bashrc
