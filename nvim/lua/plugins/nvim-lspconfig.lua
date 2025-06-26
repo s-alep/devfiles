@@ -128,7 +128,7 @@ return {
       -- jinja_lsp = {},
       phpactor = {},
       jsonls = {},
-      typescript_language_server = {},
+      ts_ls = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
       lua_ls = {

@@ -11,6 +11,7 @@ return {
     },
     explorer = { replace_netrw = true },
     dashboard = {
+      enabled = false,
       preset = {
         keys = {
           { icon = ' ', key = 'p', desc = 'Find File', action = ':Telescope find_files' },
