@@ -10,8 +10,9 @@ sed -i 's/\r$//' devfiles/.tmux.conf
 cp devfiles/.tmux.conf ~
 cp -r devfiles/nvim ~/.config
 
-mkdir ~/.local/scripts
-cp devfiles/module-sessionizer ~/.local/scripts
+cp devfiles/module-sessionizer ~
+chmod 777 ~/module-sessionizer
 
-echo 'PATH="$PATH":"$HOME/.local/scripts/"' >> ~/.bashrc
-echo 'bind '"'"'\C-f':'module-sessionizer\n'"'"'' >> ~/.bashrc
+echo 'PATH="$PATH:$HOME"' >> ~/.bashrc
+echo "bind -x '\"\C-f\":\"module-sessionizer\"'" >> ~/.bashrc
+echo "alias v=nvim" >> ~/.bashrc
