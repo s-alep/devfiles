@@ -1,5 +1,7 @@
 return {
   'Exafunction/codeium.vim',
+  -- cond = not vim.g.vscode,
+  cond = false,
   config = function()
     vim.keymap.set('i', '<C-g>', function()
       return vim.fn['codeium#Accept']()

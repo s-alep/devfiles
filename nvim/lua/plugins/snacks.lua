@@ -2,6 +2,7 @@ return {
   'folke/snacks.nvim',
   lazy = false,
   priority = 1000,
+  cond = not vim.g.vscode,
   opts = {
     scratch = { enabled = true },
     indent = {
@@ -9,7 +10,7 @@ return {
         enabled = true,
       },
     },
-    explorer = { replace_netrw = true },
+    explorer = { enabled = false },
     dashboard = {
       enabled = false,
       preset = {
@@ -31,13 +32,13 @@ return {
     },
   },
   keys = {
-    {
-      '<leader>x',
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = 'Open e[X]plorer',
-    },
+    -- {
+    --   '<leader>x',
+    --   function()
+    --     Snacks.explorer.open()
+    --   end,
+    --   desc = 'Open e[X]plorer',
+    -- },
     {
       '<leader>tp',
       function()

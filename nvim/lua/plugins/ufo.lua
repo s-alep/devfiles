@@ -1,6 +1,7 @@
 return {
   'kevinhwang91/nvim-ufo',
   dependencies = 'kevinhwang91/promise-async',
+  cond = not vim.g.vscode,
   config = function()
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.o.foldlevelstart = 99

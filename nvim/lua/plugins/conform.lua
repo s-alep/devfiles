@@ -2,6 +2,7 @@ return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
+  cond = not vim.g.vscode,
   keys = {
     {
       '<leader>=',
@@ -32,10 +33,11 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      -- python = { 'black' },
+      json = { 'prettier' },
       xml = { 'xmlformatter' },
       php = { 'phpcbf' },
       javascript = { 'prettier' },
+      twig = { 'djlint' },
     },
   },
 }

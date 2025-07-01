@@ -17,6 +17,8 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
     'mfussenegger/nvim-dap-python',
   },
+
+  cond = not vim.g.vscode,
   keys = {
     {
       '<leader>dd',
@@ -115,7 +117,7 @@ return {
     vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
     local breakpoint_icons = vim.g.have_nerd_font
         and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-        or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+      or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
     for type, icon in pairs(breakpoint_icons) do
       local tp = 'Dap' .. type
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
@@ -129,9 +131,27 @@ return {
     dap.adapters.php = {
       type = 'executable',
       command = 'php-debug-adapter', -- or full path to it
-      args = {}
+      args = {},
     }
 
+    dap.adapters.lldb = {
+      type = 'executable',
+      command = 'codelldb', -- adjust as needed
+      name = 'lldb',
+    }
+    local path = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+    dap.configurations.rust = {
+      {
+        name = 'rust',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.getcwd() .. '/target/debug/' .. path
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+      },
+    }
     dap.configurations.php = {
       {
         type = 'php',
@@ -139,10 +159,10 @@ return {
         name = 'Listen for Xdebug',
         port = 9003,
         pathMappings = {
-          ["/var/www/html"] = "${workspaceFolder}", -- DDEV web root
-          ["/var/www/html/web"] = "${workspaceFolder}/web", -- DDEV web root
+          ['/var/www/html'] = '${workspaceFolder}', -- DDEV web root
+          ['/var/www/html/web'] = '${workspaceFolder}/web', -- DDEV web root
         },
-      }
+      },
     }
     dap.configurations.python = {
       {

@@ -12,7 +12,7 @@ return {
         gemini = function()
           return require('codecompanion.adapters').extend('gemini', {
             env = {
-              api_key = 'NVmnFlNMHZmV5xQXFKlxkSiFDBCc9-1kMaWGAWN',
+              api_key = 'AIzaSyAZUMzI5kDKSXykxFvSQOPp9-1xZnJTNJA',
             },
           })
         end,
@@ -30,8 +30,6 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<leader>we', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>ww', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
     vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
-
-    vim.keymap.set('n', '<leader>ee', ':vsplit ~/.config/nvim/init.lua<CR>', { desc = 'Edit init.lua' })
     vim.cmd [[cab cc CodeCompanion]]
   end,
 }
