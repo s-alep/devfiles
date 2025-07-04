@@ -1,0 +1,19 @@
+## #ddev-generated
+## You can copy this Dockerfile.example to Dockerfile to add configuration
+## or packages or anything else to your webimage
+## These additions will be appended last to DDEV's own Dockerfile
+# RUN echo "Built on $(date)" > /build-date.txt
+RUN sudo apt update && sudo apt -y install tmux gcc ripgrep fzf
+ENV TERM=xterm-256color
+# RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# RUN git clone https://github.com/s-alep/devfiles.git
+# RUN sed -i 's/\r$//' devfiles/.tmux.conf
+# RUN mv devfiles/.tmux.conf /root
+# RUN mv devfiles/nvim /root/.config
+
+RUN curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
+RUN tar -xzf nvim-linux-x86_64.tar.gz
+RUN rm -rf  nvim-linux-x86_64.tar.gz
+RUN mv nvim-linux-x86_64 nvim
+RUN mv nvim /opt/
+RUN ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim

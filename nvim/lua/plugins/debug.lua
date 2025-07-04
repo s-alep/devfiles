@@ -35,25 +35,32 @@ return {
       desc = 'Debug: Terminate',
     },
     {
-      '<leader>di',
+      '<leader>dj',
       function()
         require('dap').step_into()
       end,
       desc = 'Debug: Step Into',
     },
     {
-      '<leader>dv',
+      '<leader>dl',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<leader>do',
+      '<leader>dk',
       function()
         require('dap').step_out()
       end,
       desc = 'Debug: Step Out',
+    },
+    {
+      '<leader>dh',
+      function()
+        require('dapui').eval(nil, { enter = true })
+      end,
+      desc = 'Debug: View Hover',
     },
     {
       '<leader>b',
@@ -70,11 +77,31 @@ return {
       desc = 'Debug: Set Breakpoint',
     },
     {
+      '<leader>db',
+      ':DapClearBreakpoints<cr>',
+      desc = 'Debug: Clear Breakpoints',
+    },
+
+    {
       '<leader>du',
       function()
         require('dapui').toggle()
       end,
-      desc = 'Debug: See last session result.',
+      desc = 'Debug: Toggle dapui',
+    },
+    {
+      '<leader>dw',
+      function()
+        require('dapui').float_element('watches', { width = 100, height = 35, enter = true, position = 'center' })
+      end,
+      desc = 'Debug: View Watches',
+    },
+    {
+      '<leader>dv',
+      function()
+        require('dapui').float_element('scopes', { width = 100, height = 35, enter = true, position = 'center' })
+      end,
+      desc = 'Debug: View Scope',
     },
   },
   config = function()
@@ -108,6 +135,44 @@ return {
           run_last = '▶▶',
           terminate = '⏹',
           disconnect = '⏏',
+        },
+      },
+      layouts = {
+        {
+          elements = {
+            {
+              id = 'repl',
+              size = 0.25,
+            },
+            {
+              id = 'console',
+              size = 0.25,
+            },
+            {
+              id = 'breakpoints',
+              size = 0.25,
+            },
+            {
+              id = 'stack',
+              size = 0.25,
+            },
+          },
+          position = 'bottom',
+          size = 10,
+        },
+        {
+          elements = {
+            {
+              id = 'scopes',
+              size = 0.5,
+            },
+            {
+              id = 'watches',
+              size = 0.5,
+            },
+          },
+          position = 'right',
+          size = 40,
         },
       },
     }
