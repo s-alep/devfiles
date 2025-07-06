@@ -112,7 +112,7 @@ return {
       'prettier',
       'debugpy',
       'php-debug-adapter',
-      'phpcbf',
+      'pretty-php',
       'curlylint',
       'twiggy_language_server',
       'xmlformatter',

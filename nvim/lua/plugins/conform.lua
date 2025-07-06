@@ -35,7 +35,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       json = { 'prettier' },
       xml = { 'xmlformatter' },
-      php = { 'phpcbf' },
+      php = { 'pretty-php' },
       javascript = { 'prettier' },
       twig = { 'djlint' },
     },
