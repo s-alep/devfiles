@@ -7,6 +7,7 @@ return {
     'catppuccin/nvim',
     lazy = false,
   },
+  { 'fcancelinha/nordern.nvim', branch = 'master', priority = 1000 },
   { 'shaunsingh/nord.nvim' },
   { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
   { 'ramojus/mellifluous.nvim' },

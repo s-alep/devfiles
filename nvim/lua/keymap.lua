@@ -7,7 +7,11 @@ vim.keymap.set('n', 'du', 'dt_')
 vim.keymap.set('n', 'cid', 'T-ct-')
 vim.keymap.set('n', 'cd', 'ct-')
 vim.keymap.set('n', 'did', 'T-dt-')
+vim.keymap.set('n', '<leader>ep', 'viwp')
+vim.keymap.set('n', '<leader>eft', ':se filetype=twig<cr>')
+vim.keymap.set('n', '<leader>efh', ':se filetype=html<cr>')
 
+vim.cmd [[cr !drush cr<cr>]]
 -- Other keymaps
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
