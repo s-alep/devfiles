@@ -11,9 +11,10 @@ vim.keymap.set('n', '<leader>ep', 'viwp')
 vim.keymap.set('n', '<leader>eft', ':se filetype=twig<cr>')
 vim.keymap.set('n', '<leader>efh', ':se filetype=html<cr>')
 
-vim.cmd [[cr !drush cr<cr>]]
+vim.cmd [[cab cr !drush cr<cr>]]
+vim.cmd [[cab xd !xdebug toggle<cr>]]
 -- Other keymaps
-vim.keymap.set('i', 'jj', '<Esc>')
+vim.keymap.set('i', '<C-]>', '<Esc>')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
