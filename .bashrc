@@ -65,3 +65,4 @@ fi
 alias src="source ~/.bashrc"
 alias edt="nvim ~/.bashrc"
 alias c='clear'
+alias hooks="rg -H --no-heading --color=always -w -F  '#[Hook' | fzf --ansi --delimiter ':' --with-nth '1,2' --header 'Select file to open in Neovim (Enter to open)' --exact --bind 'enter:execute(nvim {1})'"
