@@ -29,28 +29,14 @@ mkdir -p ~/.config
 export TERM=xterm-256color
 mkdir -p ~/.terminfo/t
 
-echo '3'
 cat << 'EOF' > ~/.terminfo/t/tmux-256color.terminfo
 tmux-256color|tmux with 256 colors,
   use=xterm-256color,
 EOF
 
-echo '4'
 tic ~/.terminfo/t/tmux-256color.terminfo
-
-echo '5'
 cd /root
-sed -i 's/\r$//' devfiles/.tmux.conf
-sed -i 's/\r$//' devfiles/.bashrc
-
-mv devfiles/nvim ~/.config/
-mv devfiles/.tmux.conf ~
-rm /root/.bashrc
-mv devfiles/.bashrc ~
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-source /root/.bashrc
-export TERM=xterm-256color
+cp -r dotfiles/nvim /root/.config
 
 nvim --version
 node -v

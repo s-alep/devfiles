@@ -61,6 +61,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH=$PATH:/usr/local/bin
 
 alias src="source ~/.bashrc"
 alias edt="nvim ~/.bashrc"
