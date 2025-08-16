@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find /var/www/html/web/modules/custom -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find /home/salepakos/Documents/dev -mindepth 1 -maxdepth 2 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
